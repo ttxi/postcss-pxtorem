@@ -1,0 +1,114 @@
+.application {
+  display: flex;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+
+  .sider {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 10px;
+    background-color: rgba(241, 242, 245, 0.45);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 180px 168px;
+
+    li {
+      display: flex;
+      align-items: center;
+      width: 156px;
+      height: 40px;
+      margin-bottom: 8px;
+      padding: 9px;
+      color: #202224;
+      font-weight: 400;
+      font-size: 16px;
+      font-family: PingFang SC-Regular, PingFang SC;
+      line-height: 22px;
+      border-radius: 4px 4px 4px 4px;
+      cursor: pointer;
+      opacity: 1;
+      transition: background-color 0.3s;
+      &.selected {
+        width: 156px;
+        height: 40px;
+        color: rgba(255, 255, 255, 0.9);
+        background: #3870e0;
+        border-radius: 4px 4px 4px 4px;
+        opacity: 1;
+      }
+    }
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex: 1;
+    gap: 67px;
+    justify-content: space-between;
+    padding: 40px;
+    padding-bottom: 111px;
+    font-family: PingFang SC-Medium, PingFang SC;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      width: 250px;
+      height: 1px;
+      margin-left: -125px;
+      background: linear-gradient(
+        90deg,
+        rgba(208, 209, 212, 0) 0%,
+        #d8d9db 51%,
+        rgba(208, 209, 212, 0) 100%
+      );
+      transform: rotate(90deg);
+      content: '';
+    }
+
+    .stand {
+      width: 431px;
+
+      .namelogo {
+        position: relative;
+        display: flex;
+        height: 24px;
+        margin-bottom: 24px;
+        color: #636870;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        img {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .title {
+        margin-bottom: 16px;
+        color: #202224;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 34px;
+      }
+
+      .desc {
+        color: #636870;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+
+    .button {
+      position: absolute;
+      bottom: 37px;
+      left: 34px;
+    }
+  }
+}

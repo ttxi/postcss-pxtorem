@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
+    "antd": "^5.4.2",
     "react": "18.x",
     "react-dom": "18.x",
     "umi": "^3.5.40"
