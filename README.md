@@ -26,3 +26,10 @@ yarn start
 - 🌐 locale(模块): 为国际化做了微小的贡献
 
 ## 请求
+
+- 请求工具类：`services/axios`
+- 具体请求方法在 `services/*` 下的文件夹
+
+## global.less
+
+Umi 中约定 `src/global.css` 为全局样式，如果存在此文件，会被自动引入到入口文件最前面。
