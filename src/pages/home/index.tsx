@@ -1,17 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'umi';
 import classnames from 'classnames';
-import { Product, DataComponent, Application, Cases, Partner } from './component/index.js';
+import { Product, DataComponent, Application, Partner } from './component/index.js';
 // import Register from 'components/aminer/user/RegisterUnited';
 // import LoginModal from 'components/aminer/user/LoginUnited';
 // import Footer from '../component/footer2';
 // import Header from '../component/header';
+import { getTrendProject } from '@/services/trend';
 import styles from './index.less';
 const imgPre = process.env.publicPath + 'theme/home/';
+
+const LegendInfo = {
+  product: {
+    title: '全面、前沿、多维度的产品与服务',
+    desc: '服务于科学家、管理者和决策者，致力于让数据说话',
+  },
+  data: { title: '知因数据资源', desc: '链接全球科研数据，提供全面客观数据支撑' },
+  application: {
+    title: '面向丰富业务场景的典型应用方案',
+    desc: '提供高效价情报，让科技决策更科学，定制多种行业解决方案，助力科技创新进程',
+  },
+  cases: { title: '典型应用案例', desc: '定制多种行业解决方案，助力科技创新过程' },
+  partner: { title: 'AMiner合作伙伴', desc: '与各行业伙伴协同创新，伴随客户持续成长' },
+};
+
 const Home = (props) => {
   const { user } = props;
   const [isShowRegisterModal, setIsShowRegisterModal] = useState(false);
-  const [isShowLoginModalBusiness, setIsShowLoginModalBusiness] = useState(false);
+  // const [isShowLoginModalBusiness, setIsShowLoginModalBusiness] = useState(false);
+
+  useEffect(() => {
+    console.log(isShowRegisterModal);
+
+    getTrendProject({
+      ids: ['642cc84ab7cb8b3aec98852c'],
+    }).then((res) => {
+      console.log(res);
+    });
+  }, []);
 
   return (
     <div className={styles.home}>
@@ -42,7 +68,7 @@ const Home = (props) => {
           <div className={styles.bannerDesc2}>助力快速掌握领域技术发展态势及趋势</div>
           {/* <div className={styles.registerBtn} onClick={() => setIsShowRegisterModal(true)}>注册试用</div> */}
           {!user ? (
-            <div className={styles.registerBtn} onClick={() => setIsShowRegisterModal(true)}>
+            <div className={styles.registerBtn} /* onClick={() => setIsShowRegisterModal(true)} */>
               免费试用
             </div>
           ) : (
@@ -64,7 +90,7 @@ const Home = (props) => {
             <span className={styles.desc}>{LegendInfo.product.desc}</span>
           </div>
           <div className={styles.content}>
-            <Product user={user} setIsShowRegisterModal={setIsShowRegisterModal} />
+            <Product user={user} /* setIsShowRegisterModal={setIsShowRegisterModal} */ />
           </div>
         </div>
       </div>
@@ -129,7 +155,7 @@ const Home = (props) => {
             style={{
               backgroundImage: `url(${imgPre}book.png)`,
             }}
-          ></div>
+          />
         </div>
       </div>
       {/* <Footer /> */}
@@ -137,44 +163,3 @@ const Home = (props) => {
   );
 };
 export default connect()(Home);
-
-const LegendInfo = {
-  product: {
-    title: '全面、前沿、多维度的产品与服务',
-    desc: '服务于科学家、管理者和决策者，致力于让数据说话',
-  },
-  data: { title: '知因数据资源', desc: '链接全球科研数据，提供全面客观数据支撑' },
-  application: {
-    title: '面向丰富业务场景的典型应用方案',
-    desc: '提供高效价情报，让科技决策更科学，定制多种行业解决方案，助力科技创新进程',
-  },
-  cases: { title: '典型应用案例', desc: '定制多种行业解决方案，助力科技创新过程' },
-  partner: { title: 'AMiner合作伙伴', desc: '与各行业伙伴协同创新，伴随客户持续成长' },
-};
-
-const productContent = [
-  {
-    defaultIcon: '2ziyuanjiansuohui',
-    activeIcon: 'ziyuanjiansuolan',
-    title: '科技文献检索与智能解读',
-    desc: '帮助用户从论文、专利、学者、项目、资讯五个维度跟踪技术发展动态，快速定位关联研究成果和前沿进展。',
-  },
-  {
-    defaultIcon: '2shujukeshihuahui',
-    activeIcon: '2shujukehsihuafenxi',
-    title: '科技大数据多维可视化分析',
-    desc: '从技术主题、地区、机构、学者等维度以可视化图表的形式展示数据背后的规律、关系与趋势，帮助用户快速完成领域分析。',
-  },
-  {
-    defaultIcon: '2lingyuquanjingfenxihui',
-    activeIcon: '2lingyuquanjingfenxilan',
-    title: '技术全景分析',
-    desc: '半自动化构建领域技术链图谱，挖掘技术背后的关键技术成果、机构和学者，帮助用户从宏观层面快速总览领域技术全景。',
-  },
-  {
-    defaultIcon: '2baogaozidonghuashengchenghui',
-    activeIcon: '2baogaozidonghuashengchenglan',
-    title: '领域分析报告自动化生成',
-    desc: '基于多维可视化分析结果，一键智能生成领域分析报告，帮助用户快速完成报告撰写。',
-  },
-];

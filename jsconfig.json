@@ -5,7 +5,20 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
-  }
+  },
+  "exclude": [
+    ".temp",
+    ".vscode",
+    "docs",
+    "dist",
+    "node_modules",
+    "src/**/*-test.js",
+    "public",
+    "scripts",
+    "webpack",
+    "tslint:latest",
+    "tslint-config-prettier"
+  ]
 }
