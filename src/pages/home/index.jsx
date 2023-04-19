@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { connect, component } from 'acore';
+import { connect } from 'umi';
 import classnames from 'classnames';
 import { Product, DataComponent, Application, Cases, Partner } from './component/index.js';
 // import Register from 'components/aminer/user/RegisterUnited';
@@ -136,7 +136,7 @@ const Home = (props) => {
     </div>
   );
 };
-export default Home;
+export default connect()(Home);
 
 const LegendInfo = {
   product: {
