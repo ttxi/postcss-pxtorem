@@ -1,4 +1,4 @@
-# umi project
+# zhiyin
 
 ## Getting Started
 
@@ -33,3 +33,7 @@ yarn start
 ## global.less
 
 Umi 中约定 `src/global.css` 为全局样式，如果存在此文件，会被自动引入到入口文件最前面。
+
+## pxtorem
+
+config 文件中配置了 `pxtorem`, 但是现在 antd 的 px 没有被转换
